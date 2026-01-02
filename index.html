@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Azzarello Adult Living at Home Agreement</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #020617;
+      --card: #020617;
+      --card-alt: #020617;
+      --accent: #22c55e;
+      --accent-soft: rgba(34,197,94,0.15);
+      --danger: #ef4444;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --yellow: #facc15;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
+      color: var(--text);
+      padding: 1.5rem;
+    }
+    .app {
+      max-width: 900px;
+      margin: 0 auto 3rem auto;
+    }
+    h1, h2, h3 {
+      margin: 0 0 0.75rem 0;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    h1 { font-size: 1.7rem; }
+    h2 { font-size: 1.2rem; margin-top: 1.5rem; }
+    p { margin: 0 0 0.75rem 0; color: var(--muted); }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+      gap: 0.35rem;
+      margin-bottom: 0.75rem;
+    }
+    .pill span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 17px;
+      height: 17px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.75rem;
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, rgba(148,163,184,0.08), transparent 50%),
+                  rgba(15,23,42,0.96);
+      border-radius: 1rem;
+      border: 1px solid rgba(148,163,184,0.2);
+      padding: 1.25rem 1.25rem 1.5rem 1.25rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 18px 40px rgba(15,23,42,0.8);
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .badge {
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid rgba(148,163,184,0.4);
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 0.75rem 1rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      margin-bottom: 0.25rem;
+      color: var(--muted);
+    }
+    input[type="text"],
+    input[type="number"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.5rem 0.6rem;
+      background: rgba(15,23,42,0.9);
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 0.9rem;
+      outline: none;
+    }
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(34,197,94,0.4);
+    }
+    textarea { min-height: 60px; resize: vertical; }
+
+    .radio-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+    }
+    .radio-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+    }
+    .radio-pill input { margin: 0; }
+
+    .hint {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+
+    .section-score {
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .btn-row {
+      margin-top: 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 0.55rem 1.2rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #022c22;
+      box-shadow: 0 10px 25px rgba(22,163,74,0.7);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .result-box {
+      border-radius: 0.75rem;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      background: rgba(15,23,42,0.9);
+      font-size: 0.85rem;
+    }
+    .result-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 0.15rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+    .result-value {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .result-sub {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.1rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.35rem;
+    }
+    .tag {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      color: var(--muted);
+    }
+
+    .level-high { color: var(--accent); }
+    .level-mid { color: var(--yellow); }
+    .level-low { color: var(--danger); }
+
+    @media (max-width: 640px) {
+      body { padding: 1rem; }
+      h1 { font-size: 1.4rem; }
+      .card { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- Intro -->
+    <div class="card">
+      <div class="pill">
+        <span>🏠</span> Azzarello Family · Adult Living at Home
+      </div>
+      <div class="card-header">
+        <div>
+          <h1>Living at Home Agreement</h1>
+          <p>Discover your path to independence: clear expectations, honest assessment, and a fair way to stay rent free by living as a responsible adult.</p>
+        </div>
+        <div class="badge">Adult readiness check‑in</div>
+      </div>
+      <div class="grid">
+        <div>
+          <label>Name</label>
+          <input id="name" type="text" placeholder="Ethan / Micah" />
+        </div>
+        <div>
+          <label>Age</label>
+          <input id="age" type="number" min="18" max="30" value="18" />
+        </div>
+        <div>
+          <label>Month</label>
+          <input id="month" type="text" placeholder="January 2026" />
+        </div>
+      </div>
+      <p class="hint">
+        Higher independence and responsibility = more freedom and the ability to live rent free. Lower independence = financial contribution and/or more household labor.
+      </p>
+    </div>
+
+    <!-- Non‑negotiables -->
+    <div class="card">
+      <div class="card-header">
+        <h2>1 · Family Non‑negotiables</h2>
+        <div class="badge">Required for rent‑free</div>
+      </div>
+      <p class="hint">These are baseline commitments for every adult living in the home. If these aren’t in place, rent‑free status is paused.</p>
+
+      <div class="grid">
+        <div>
+          <label>Spiritual commitments</label>
+          <div class="radio-group">
+            <label class="radio-pill">
+              <input type="checkbox" id="nnChurch" checked />
+              Weekly church attendance
+            </label>
+            <label class="radio-pill">
+              <input type="checkbox" id="nnServe" checked />
+              Serve at church weekly
+            </label>
+            <label class="radio-pill">
+              <input type="checkbox" id="nnTithe" checked />
+              Monthly giving / tithe
+            </label>
+          </div>
+        </div>
+        <div>
+          <label>Family commitments</label>
+          <div class="radio-group">
+            <label class="radio-pill">
+              <input type="checkbox" id="nnDinner" checked />
+              Present for family dinner night
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid" style="margin-top:0.75rem;">
+        <div>
+          <label>Phone & sleep</label>
+          <div class="hint" style="margin-bottom:0.25rem;">
+            Phone is left outside the bedroom; no scrolling in bed at night.
+          </div>
+          <label>Time phone goes on the charger (outside bedroom)</label>
+          <input id="phoneChargeTime" type="text" placeholder="10:00 pm" />
+          <label style="margin-top:0.4rem;">This month I followed this phone policy</label>
+          <select id="phonePolicy">
+            <option value="5">Almost always (5–7 nights/week)</option>
+            <option value="3">Sometimes (2–4 nights/week)</option>
+            <option value="1">Rarely (0–1 night/week)</option>
+          </select>
+        </div>
+        <div>
+          <label>Lights out by 11 pm (Sun–Thu)</label>
+          <select id="lightsOut">
+            <option value="5">Almost always (5–7 nights/week)</option>
+            <option value="3">Sometimes (2–4 nights/week)</option>
+            <option value="1">Rarely (0–1 night/week)</option>
+          </select>
+          <label style="margin-top:0.5rem;">Substances in or around the home</label>
+          <select id="substances">
+            <option value="5">I fully honor the no‑substances expectation</option>
+            <option value="1">I have not consistently honored this</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Life Progress -->
+    <div class="card">
+      <div class="card-header">
+        <h2>2 · Life Progress</h2>
+        <div class="badge">Work · School · Money</div>
+      </div>
+      <p class="hint">This is the foundation of your adult life: work, school, and handling your money.</p>
+
+      <div class="grid">
+        <div>
+          <label>Education / work status</label>
+          <div class="radio-group">
+            <label class="radio-pill">
+              <input type="checkbox" id="lpSchool" />
+              Enrolled in higher ed / trade training
+            </label>
+            <label class="radio-pill">
+              <input type="checkbox" id="lpJob" />
+              Employed (job / regular work)
+            </label>
+          </div>
+          <label style="margin-top:0.4rem;">Average work hours per week</label>
+          <input id="lpHours" type="number" min="0" max="80" value="0" />
+        </div>
+        <div>
+          <label>Budget & responsibilities</label>
+          <div class="radio-group">
+            <label class="radio-pill">
+              <input type="checkbox" id="lpBudget" />
+              I maintain a written budget
+            </label>
+            <label class="radio-pill">
+              <input type="checkbox" id="lpShowBudget" />
+              I am willing to show my budget / spending
+            </label>
+          </div>
+          <label style="margin-top:0.4rem;">I am current on:</label>
+          <div class="radio-group">
+            <label class="radio-pill">
+              <input type="checkbox" id="lpCell" />
+              Cell phone
+            </label>
+            <label class="radio-pill">
+              <input type="checkbox" id="lpCarPay" />
+              Car payment
+            </label>
+            <label class="radio-pill">
+              <input type="checkbox" id="lpGas" />
+              Gas / maintenance
+            </label>
+            <label class="radio-pill">
+              <input type="checkbox" id="lpInsurance" />
+              Vehicle insurance
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-score">
+        Life Progress score (1–5) is based on work/school engagement and budgeting responsibilities.
+      </div>
+    </div>
+
+    <!-- Personal Dev + Spiritual & Emotional -->
+    <div class="card">
+      <div class="card-header">
+        <h2>3 · Personal, Spiritual & Emotional Growth</h2>
+        <div class="badge">Habits & maturity</div>
+      </div>
+      <p class="hint">These habits show maturity, self‑leadership, and a growing walk with God.</p>
+
+      <h3 style="font-size:0.9rem;margin-bottom:0.5rem;">Physical & personal habits</h3>
+      <div class="grid">
+        <div>
+          <label>Times you exercised in the last 2 weeks</label>
+          <input id="pdExercise" type="number" min="0" max="30" value="0" />
+          <div class="hint">Goal: 3+ times shows consistent commitment.</div>
+        </div>
+        <div>
+          <label>Chapters/pages read in the last week</label>
+          <input id="pdRead" type="number" min="0" max="200" value="0" />
+          <div class="hint">Goal: around 7+ chapters (or equivalent) is excellent.</div>
+        </div>
+      </div>
+
+      <div class="grid" style="margin-top:0.75rem;">
+        <div>
+          <label>Hobby / skill you’re actively developing</label>
+          <input id="pdHobbyName" type="text" placeholder="Guitar, art, coding, etc." />
+          <label style="margin-top:0.35rem;">Hours spent on this hobby in last 2 weeks</label>
+          <input id="pdHobbyHours" type="number" min="0" max="80" value="0" />
+        </div>
+        <div>
+          <label>Spiritual habits (last 2 weeks)</label>
+          <div class="radio-group">
+            <label class="radio-pill">
+              <input type="checkbox" id="spBible" />
+              Bible / devotional habit
+            </label>
+            <label class="radio-pill">
+              <input type="checkbox" id="spPrayer" />
+              Regular prayer time
+            </label>
+            <label class="radio-pill">
+              <input type="checkbox" id="spGroup" />
+              Small group / study
+            </label>
+          </div>
+          <label style="margin-top:0.35rem;">Days you did Bible/devotional time</label>
+          <input id="spBibleDays" type="number" min="0" max="14" value="0" />
+          <label style="margin-top:0.35rem;">Days you had focused prayer time</label>
+          <input id="spPrayerDays" type="number" min="0" max="14" value="0" />
+        </div>
+      </div>
+
+      <div class="grid" style="margin-top:0.75rem;">
+        <div>
+          <label>Emotional / mental health habits (last 2 weeks)</label>
+          <div class="radio-group">
+            <label class="radio-pill">
+              <input type="checkbox" id="mhJournal" />
+              Journaling
+            </label>
+            <label class="radio-pill">
+              <input type="checkbox" id="mhMentor" />
+              Mentor / counseling / real check‑ins
+            </label>
+            <label class="radio-pill">
+              <input type="checkbox" id="mhWalks" />
+              Walks / time outside
+            </label>
+          </div>
+          <label style="margin-top:0.35rem;">Meaningful check‑ins about how you’re doing</label>
+          <input id="mhCheckins" type="number" min="0" max="20" value="0" />
+          <label style="margin-top:0.35rem;">Times you did something for mental health</label>
+          <input id="mhActions" type="number" min="0" max="20" value="0" />
+        </div>
+        <div>
+          <label>Short reflection (optional)</label>
+          <textarea id="pdReflection" placeholder="One way I grew spiritually and emotionally this month..."></textarea>
+        </div>
+      </div>
+
+      <div class="section-score">
+        Spiritual & Emotional Health score (1–5) comes from consistent habits, not just one‑time actions.
+      </div>
+    </div>
+
+    <!-- Household Contribution -->
+    <div class="card">
+      <div class="card-header">
+        <h2>4 · Household Contribution</h2>
+        <div class="badge">Home readiness</div>
+      </div>
+      <p class="hint">This shows you can run your own home: clean spaces, chores, meals, and laundry.</p>
+
+      <div class="grid">
+        <div>
+          <label>Bedroom – how clean is it right now? (1–10)</label>
+          <input id="hcBedroom" type="number" min="1" max="10" value="5" />
+          <div class="hint">1 = very messy, 10 = spotless.</div>
+        </div>
+        <div>
+          <label>Bathroom – how clean is it right now? (1–10)</label>
+          <input id="hcBathroom" type="number" min="1" max="10" value="5" />
+          <div class="hint">1 = very messy, 10 = spotless.</div>
+        </div>
+      </div>
+
+      <div class="grid" style="margin-top:0.75rem;">
+        <div>
+          <label>Chores in the last week</label>
+          <label>Household chores you did (dishes, vacuum, trash, yard, etc.)</label>
+          <input id="hcChores" type="number" min="0" max="50" value="0" />
+          <label style="margin-top:0.35rem;">Times you did chores without being asked</label>
+          <input id="hcChoresVoluntary" type="number" min="0" max="50" value="0" />
+        </div>
+        <div>
+          <label>Laundry and cleaning</label>
+          <select id="hcLaundry">
+            <option value="5">I do all my own laundry consistently</option>
+            <option value="3">I sometimes forget or need reminders</option>
+            <option value="1">I mostly rely on others</option>
+          </select>
+          <label style="margin-top:0.35rem;">My personal spaces are maintained weekly without reminders</label>
+          <select id="hcSpaces">
+            <option value="5">Yes, consistently</option>
+            <option value="3">Sometimes</option>
+            <option value="1">Rarely</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid" style="margin-top:0.75rem;">
+        <div>
+          <label>Meals & food responsibility</label>
+          <select id="hcMeals">
+            <option value="1">Parents cook all my meals</option>
+            <option value="4">I help cook or offer to help as frequently as I can</option>
+            <option value="5">I cook all my own meals independently</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="section-score">
+        Household Contribution score (1–5) reflects how ready you are to manage your own home.
+      </div>
+    </div>
+
+    <!-- Structure & Honor -->
+    <div class="card">
+      <div class="card-header">
+        <h2>5 · Structure & Honor</h2>
+        <div class="badge">Respecting the home</div>
+      </div>
+      <p class="hint">Honoring the house, its rules, and your parents is part of adult readiness.</p>
+
+      <div class="grid">
+        <div>
+          <label>Age group</label>
+          <select id="shAgeGroup">
+            <option value="5">18 or older</option>
+          </select>
+          <label style="margin-top:0.35rem;">One way I honored Mom and Dad’s preferences this month</label>
+          <textarea id="shHonorGood"></textarea>
+        </div>
+        <div>
+          <label>One area I need to improve in honoring the home and its rules</label>
+          <textarea id="shHonorImprove"></textarea>
+        </div>
+      </div>
+
+      <div class="section-score">
+        Structure & Honor score (1–5) is based on phone policy, lights out, substances, and honoring preferences.
+      </div>
+    </div>
+
+    <!-- Adult Readiness & Decision -->
+    <div class="card">
+      <div class="card-header">
+        <h2>6 · Adult Readiness & Decision</h2>
+        <div class="badge">Rent‑free vs. contribution</div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-primary" onclick="calculateReadiness()">Reveal my Adult Readiness</button>
+        <button class="btn-secondary" onclick="resetForm()">Reset</button>
+      </div>
+
+      <div class="results-grid" style="margin-top:1.25rem;">
+        <div class="result-box">
+          <div class="result-label">Section scores (1–5)</div>
+          <div class="result-value" id="secScoresDisplay">–</div>
+          <div class="result-sub" id="secScoresDetail"></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Adult Readiness Score</div>
+          <div class="result-value" id="adultScoreDisplay">–</div>
+          <div class="result-sub" id="adultScoreDetail"></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Living arrangement</div>
+          <div class="result-value" id="livingDecisionDisplay">–</div>
+          <div class="result-sub" id="livingDecisionDetail"></div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:1.1rem;">Looking forward</h3>
+      <div class="grid">
+        <div>
+          <label>One area I want to grow this year</label>
+          <textarea id="lfGrow"></textarea>
+        </div>
+        <div>
+          <label>2 habits I commit to for next month</label>
+          <textarea id="lfHabits" placeholder="Example: phone out of room every night; show budget on the 1st; cook dinner twice a week"></textarea>
+        </div>
+      </div>
+
+      <div class="grid" style="margin-top:0.75rem;">
+        <div>
+          <label>What I need from my parents right now</label>
+          <div class="radio-group">
+            <label class="radio-pill">
+              <input type="checkbox" id="needSupport" /> Emotional support & encouragement
+            </label>
+            <label class="radio-pill">
+              <input type="checkbox" id="needBudget" /> Financial guidance & budgeting help
+            </label>
+            <label class="radio-pill">
+              <input type="checkbox" id="needIndependence" /> More independence & space to grow
+            </label>
+            <label class="radio-pill">
+              <input type="checkbox" id="needSkills" /> Help learning specific life skills
+            </label>
+            <label class="radio-pill">
+              <input type="checkbox" id="needAccountability" /> Accountability & structure
+            </label>
+            <label class="radio-pill">
+              <input type="checkbox" id="needPrayer" /> Prayer & spiritual guidance
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="tag-row">
+        <div class="tag">Higher Adult Readiness = rent‑free living & more freedom</div>
+        <div class="tag">Lower Adult Readiness = contribution & more structure</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function clamp(val, min, max) {
+      const n = Number(val);
+      if (isNaN(n)) return min;
+      return Math.min(Math.max(n, min), max);
+    }
+
+    function fractionScore(actual, goodThreshold, greatThreshold) {
+      actual = clamp(actual, 0, 9999);
+      if (actual >= greatThreshold) return 5;
+      if (actual >= goodThreshold) return 4;
+      if (actual > 0) return 3;
+      return 1;
+    }
+
+    function calculateLifeProgressScore() {
+      const school = document.getElementById("lpSchool").checked;
+      const job = document.getElementById("lpJob").checked;
+      const hours = clamp(document.getElementById("lpHours").value, 0, 80);
+      const budget = document.getElementById("lpBudget").checked;
+      const showBudget = document.getElementById("lpShowBudget").checked;
+      const cell = document.getElementById("lpCell").checked;
+      const carPay = document.getElementById("lpCarPay").checked;
+      const gas = document.getElementById("lpGas").checked;
+      const insurance = document.getElementById("lpInsurance").checked;
+
+      let workScore = 1;
+      if (job && hours >= 30) workScore = 5;
+      else if (job && hours >= 15) workScore = 4;
+      else if (job || school) workScore = 3;
+
+      let budgetScore = 1;
+      if (budget && showBudget) budgetScore = 5;
+      else if (budget) budgetScore = 3;
+
+      const responsibilities = [cell, carPay, gas, insurance];
+      const totalResp = responsibilities.length;
+      const currentResp = responsibilities.filter(Boolean).length;
+      let respScore = 1;
+      if (currentResp === totalResp && totalResp > 0) respScore = 5;
+      else if (currentResp >= totalResp - 1) respScore = 4;
+      else if (currentResp > 0) respScore = 3;
+
+      const avg = (workScore + budgetScore + respScore) / 3;
+      return Math.round(avg * 10) / 10;
+    }
+
+    function calculatePersonalSpiritualScore() {
+      const exTimes = clamp(document.getElementById("pdExercise").value, 0, 30);
+      const readCh = clamp(document.getElementById("pdRead").value, 0, 200);
+      const hobbyHours = clamp(document.getElementById("pdHobbyHours").value, 0, 80);
+
+      const exScore = fractionScore(exTimes, 1, 3);
+      const readS
