@@ -705,3 +705,10 @@
 
       const exScore = fractionScore(exTimes, 1, 3);
       const readS
+function exportResults() {
+  const name = document.getElementById("name").value || "Unnamed";
+  const age = document.getElementById("age").value || "?";
+  const month = document.getElementById("month").value || "Unnamed";
+
+  const lifeScore = calculateLifeProgressScore();
+  const personalScore
